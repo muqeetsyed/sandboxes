@@ -1,0 +1,39 @@
+FROM php:8.3-fpm-bullseye
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    unzip \
+    libpng-dev \
+    libzip-dev \
+    libxml2-dev \
+    libicu-dev \
+    zlib1g-dev \
+ && docker-php-ext-install pdo_mysql intl zip gd opcache soap \
+ && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+
+
+COPY build/php/opcache.ini /usr/local/etc/php/conf.d/
+COPY build/php/error_reporting.ini /usr/local/etc/php/conf.d/
+
+
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN curl -sS https://get.symfony.com/cli/installer | bash
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN chmod +x /usr/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
+
+
+RUN usermod -u 1000 www-data
+RUN usermod -a -G www-data root
+RUN mkdir -p /var/www
+RUN chown -R www-data:www-data /var/www
+RUN mkdir -p /var/www/.composer
+RUN chown -R www-data:www-data /var/www/.composer
+#RUN composer self-update
+WORKDIR /var/www/project/
+RUN #composer install
