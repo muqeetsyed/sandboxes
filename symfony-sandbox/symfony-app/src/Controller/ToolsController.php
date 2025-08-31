@@ -8,14 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class appController extends AbstractController
+class ToolsController extends AbstractController
 {
-    #[Route('/app',
-        condition: "request.headers.get('User-Agent') matches '/Chrome/i'",
-        env: 'dev'
-    )]
     public function index(): Response
     {
-        return new Response('Hello World!');
+        return new Response('Tools controller!');
     }
 }
