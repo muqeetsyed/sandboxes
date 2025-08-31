@@ -13,9 +13,9 @@ services:
 
   mongo:
     image: mongo:8.0
-    container_name: mongo
+    container_name: mongo_sb
     ports:
-      - "27018:27017"
+      - "27019:27017"
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=example

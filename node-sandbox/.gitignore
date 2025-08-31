@@ -1,2 +1,14 @@
-/node_modules
-/package-lock.json
+# Ignore node_modules folder
+node_modules/
+.idea/
+
+# Ignore environment files
+.env
+
+# Ignore log files
+*.log
+
+
+package-lock.json
+
+
