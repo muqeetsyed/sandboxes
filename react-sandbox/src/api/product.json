@@ -1,0 +1,44 @@
+[
+  {
+    "productImage": "images/bamboo-cutlery-set.avif",
+    "productImageAlt": "Product Image",
+    "productName": "Bamboo cutlery set",
+    "productDescription": "Short description of the product",
+    "productPrice": "99.99"
+  },
+  {
+    "productImage": "images/eco-glass-jar.avif",
+    "productImageAlt": "Product Image",
+    "productName": "Eco glass jar",
+    "productDescription": "Short description of the product",
+    "productPrice": "43.32"
+  },
+  {
+    "productImage": "images/eco-glass-storage.avif",
+    "productImageAlt": "Product Image",
+    "productName": "Eco glass storage",
+    "productDescription": "Short description of the product",
+    "productPrice": "12.32"
+  },
+  {
+    "productImage": "images/organic-mesh-cloth.avif",
+    "productImageAlt": "Product Image",
+    "productName": "Organic mesh cloth",
+    "productDescription": "Short description of the product",
+    "productPrice": "2.32"
+  },
+  {
+    "productImage": "images/sponges.avif",
+    "productImageAlt": "Product Image",
+    "productName": "Sponges",
+    "productDescription": "Short description of the product",
+    "productPrice": "2.32"
+  },
+  {
+    "productImage": "images/stainless-stell-lunch-box.avif",
+    "productImageAlt": "Product Image",
+    "productName": "Stainless steel lunch box",
+    "productDescription": "Short description of the product",
+    "productPrice": "100.2"
+  }
+]
