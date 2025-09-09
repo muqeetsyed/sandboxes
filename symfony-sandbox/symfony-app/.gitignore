@@ -7,4 +7,9 @@
 /public/bundles/
 /var/
 /vendor/
+../.idea/GitLink.xml
+../.idea/material_theme_project_new.xml
+../.idea/php.xml
+../.idea/vcs.xml
+../.idea/workspace.xml
 ###< symfony/framework-bundle ###
