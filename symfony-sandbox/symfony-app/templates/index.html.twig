@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body_class 'index' %}
+
+{% block content %}
+    <div class="container">
+        <div class="card-body">
+            <p class="card-text">Retrieval Augmented Generation (RAG) based on Symfony's blog dumped to a vector store.</p>
+            <a href="{{ path('blog') }}" class="btn btn-outline-dark d-block">Try Symfony Blog Bot</a>
+        </div>
+
+        <div class="card-body">
+            <p class="card-text">Turbo Stream Chat</p>
+            <a href="{{ path('stream') }}" class="btn btn-outline-dark d-block">Try Symfony stream Bot</a>
+        </div>
+    </div>
+{% endblock %}
