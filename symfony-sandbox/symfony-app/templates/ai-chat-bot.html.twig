@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body_class 'ai chat ' %}
+
+{% block body %}
+    {% block content %}
+        <form method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token('ai_chat_form') }}">
+            <label for="chat"></label>
+            <textarea id="chat"
+                      name="user-query"
+                      cols="30" rows="10"
+                      style="width: 50%; height: 50%;"
+                      placeholder="Write a message ...">
+                </textarea>
+            <button id="chat-submit" type="submit">Submit</button>
+        </form>
+    {% endblock %}
+{% endblock %}
