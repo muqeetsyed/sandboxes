@@ -10,6 +10,8 @@ services:
     volumes:
       - ./symfony-app:/var/www/project:cached
     environment:
+      # Pass OpenAI key inside the container
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
       # Enhanced Xdebug configuration
       PHP_IDE_CONFIG: "serverName=symfony-docker"
       XDEBUG_MODE: "debug"

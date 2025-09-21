@@ -1,8 +1,9 @@
 {#{% import "_message.html.twig" as message %}#}
 
+
 <div {{ attributes.defaults(stimulus_controller('chat')) }}>
     <div>
-        <strong>Symfony Blog Bot</strong>
+        <strong>Ask me anything</strong>
         <button id="chat-reset"> Reset Chat</button>
     </div>
     <div id="chat-body">
@@ -19,8 +20,13 @@
     </div>
     <div >
         <div >
-            <label for="chat-message"></label><input id="chat-message" type="text" placeholder="Write a message ...">
-            <button id="chat-submit" type="button">Submit</button>
+            <label for="chat-message"></label>
+                <textarea id="chat-message"
+                          cols="30" rows="10"
+                          style="width: 50%; height: 50%;"
+                          placeholder="Write a message ...">
+                </textarea>
+            <button id="chat-submit" type="button" {{ live_action('process') }}>Submit</button>
         </div>
     </div>
 </div>
