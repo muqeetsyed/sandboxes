@@ -8,9 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class BlogController extends AbstractController
+final class BlogController extends AbstractController
 {
-
     #[Route('/blog/list', name: 'blog_list')]
     public function list(): Response
     {
@@ -24,7 +23,8 @@ class BlogController extends AbstractController
     }
 }
 
-enum OrderStatusEnum: string {
+enum OrderStatusEnum: string
+{
     case PENDING = 'pending';
     case APPROVED = 'approved';
     case REJECTED = 'rejected';

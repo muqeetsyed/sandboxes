@@ -18,13 +18,14 @@ final class Chat extends AbstractController
     public string $chat;
 
     #[LiveAction]
-    public function submitMessage(#[LiveArg]string $message): void {
-            $this->messages[] = $message;
+    public function submitMessage(#[LiveArg] string $message): void
+    {
+        $this->messages[] = $message;
     }
 
-
     #[LiveAction]
-    public function process(): string {
+    public function process(): string
+    {
         return $this->chat;
     }
 }
