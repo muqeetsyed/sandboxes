@@ -12,6 +12,7 @@
                       cols="30" rows="10"
                       style="width: 50%; height: 50%;"
                       placeholder="Write a message ...">
+                {{ response|default('') }}
                 </textarea>
             <button id="chat-submit" type="submit">Submit</button>
         </form>

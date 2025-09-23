@@ -25,22 +25,25 @@ final class AiChatController extends AbstractController
         if ($request->getMethod() === 'POST') {
             $message = $request->request->get('user-query');
 
-            $response = $this->client->request('POST', 'https://api.openai.com/v1/chat/completions', [
-                'headers' => [
-                    'Authorization' => 'Bearer ' . $this->openaiApiKey,
-                    'Content-Type' => 'application/json',
-                ],
-                'json' => [
-                    'model' => 'gpt-4o-mini',
-                    'messages' => [
-                        ['role' => 'user', 'content' => 'Hell0 how are?'],
-                    ],
-                ],
-            ]);
+            // Enable this code when you have a valid OpenAI API key and want to make actual requests
+            /* $response = $this->client->request('POST', 'https://api.openai.com/v1/chat/completions', [
+             * 'headers' => [
+             * 'Authorization' => 'Bearer ' . $this->openaiApiKey,
+             * 'Content-Type' => 'application/json',
+             * ],
+             * 'json' => [
+             * 'model' => 'gpt-4o-mini',
+             * 'messages' => [
+             * ['role' => 'user', 'content' => 'Hell0 how are?'],
+             * ],
+             * ],
+             * ]);
+             *
+             * $data = $response->toArray();
+             *
+             * return $data['choices'][0]['message']['content'] ?? '';*/
 
-            $data = $response->toArray();
-
-            return $data['choices'][0]['message']['content'] ?? '';
+            return $this->render('ai-chat-bot.html.twig', ['response' => 'You said: ' . $message]);
         }
 
         return $this->render('ai-chat-bot.html.twig');
