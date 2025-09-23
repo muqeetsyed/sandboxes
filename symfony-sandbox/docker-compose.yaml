@@ -47,7 +47,7 @@ services:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: test
-      MYSQL_DATABASE: cloud-erp
+      MYSQL_DATABASE: symfony_app
     ports:
       - "3307:3306"
     volumes:
