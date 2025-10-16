@@ -20,30 +20,45 @@ final class AiChatController extends AbstractController
     #[Route('/ai-chat-bot', name: 'ai_chat_bot', methods: ['POST', 'GET'])]
     public function chatBot(Request $request): Response
     {
-        //        dd($request->getMethod());
-
         if ($request->getMethod() === 'POST') {
             $message = $request->request->get('user-query');
 
             // Enable this code when you have a valid OpenAI API key and want to make actual requests
-            /* $response = $this->client->request('POST', 'https://api.openai.com/v1/chat/completions', [
-             * 'headers' => [
-             * 'Authorization' => 'Bearer ' . $this->openaiApiKey,
-             * 'Content-Type' => 'application/json',
-             * ],
-             * 'json' => [
-             * 'model' => 'gpt-4o-mini',
-             * 'messages' => [
-             * ['role' => 'user', 'content' => 'Hell0 how are?'],
-             * ],
-             * ],
-             * ]);
-             *
-             * $data = $response->toArray();
-             *
-             * return $data['choices'][0]['message']['content'] ?? '';*/
+//             $response = $this->client->request('POST', 'https://api.openai.com/v1/chat/completions', [
+//                  'headers' => [
+//                          'Authorization' => 'Bearer ' . $this->openaiApiKey,
+//                          'Content-Type' => 'application/json',
+//                  ],
+//                  'json' => [
+//                  'model' => 'gpt-4o-mini',
+//                  'messages' => [
+//                      [
+//                          'role' => 'user', 'content' => $message],
+//                      ],
+//                  ],
+//             ]);
+//
+//
+//
+//             $data = $response->toArray();
+//
+//             return $this->render('ai-chat-bot.html.twig',[
+//                'response' => $data['choices'][0]['message']['content'] ?? 'No response from AI.',
+//             ]);
 
-            return $this->render('ai-chat-bot.html.twig', ['response' => 'You said: ' . $message]);
+
+
+            $response = $client->conversations()->create([
+                'metadata' => ['topic' => 'demo'],
+                'items' => [
+                    [
+                        'type' => 'message',
+                        'role' => 'user',
+                        'content' => 'Hello!'
+                    ],
+                ],
+            ]);
+
         }
 
         return $this->render('ai-chat-bot.html.twig');
