@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;use Symfony\UX\Turbo\TurboBundle;use Symfony\UX\Turbo\TurboStreamResponse;
 
 final class AiChatController extends AbstractController
 {
@@ -42,8 +42,10 @@ final class AiChatController extends AbstractController
              * $data = $response->toArray();
              *
              * return $data['choices'][0]['message']['content'] ?? '';*/
-
-            return $this->render('ai-chat-bot.html.twig', ['response' => 'You said: ' . $message]);
+            $request->setRequestFormat(TurboBundle::STREAM_FORMAT);
+            return $this->render('turbo/agent-response.html.twig',
+                ['response' => 'I am good'],
+                new TurboStreamResponse());
         }
 
         return $this->render('ai-chat-bot.html.twig');
