@@ -4,6 +4,7 @@
 
 {% block body %}
     {% block content %}
+        <turbo-frame  id="product-info" target="_top">
         <form method="post">
             <input type="hidden" name="_token" value="{{ csrf_token('ai_chat_form') }}">
             <label for="chat"></label>
@@ -12,9 +13,15 @@
                       cols="30" rows="10"
                       style="width: 50%; height: 50%;"
                       placeholder="Write a message ...">
-                {{ response|default('') }}
+
                 </textarea>
+
+
+
             <button id="chat-submit" type="submit">Submit</button>
         </form>
+        </turbo-frame>
+
+        <div id="my_div_id"></div>
     {% endblock %}
 {% endblock %}

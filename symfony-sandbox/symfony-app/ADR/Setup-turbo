@@ -1,0 +1,18 @@
+Simply go to php_fpm_container
+and run command:
+
+>>apt-get update && apt-get install -y curl gnupg
+  curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+  apt-get install -y nodejs
+
+To install node and npm, once done
+
+Run : composer require encore
+Run npm install
+and run: npm install @hotwired/turbo --save
+
+
+Also run composer require symfony/ux-turbo
+
+
+After this run : npm run dev ---- // that will start watching ur asset files
